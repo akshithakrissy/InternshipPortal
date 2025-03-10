@@ -1,0 +1,52 @@
+@use '../sass/variables';
+@use '../sass/mixins';
+
+.success {
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  &-container {
+    text-align: center;
+    max-width: 69.375rem;
+    margin: auto;
+  }
+  &__message {
+    margin-bottom: 2rem;
+    &-email {
+      text-decoration: underline dotted variables.$color-dark-cyan 3px;
+    }
+  }
+  &__btn-container {
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    max-width: 20rem;
+    margin: auto;
+  }
+}
+.img-container {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.check-mark {
+  color: variables.$color-dark-cyan;
+}
+
+.success-btn {
+  background-color: variables.$color-dark-cyan;
+  color: variables.$color-bg;
+  margin-top: 2rem;
+  font-size: 1rem;
+  padding: 0.6rem 2rem 0.5rem 2rem;
+  border-radius: 8px;
+  &:hover {
+    background-color: variables.$color-bg;
+    border: solid 1px variables.$color-dark-cyan;
+    color: variables.$color-dark-cyan;
+  }
+}

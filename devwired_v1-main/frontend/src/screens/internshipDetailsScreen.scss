@@ -1,0 +1,145 @@
+@use '../sass/variables';
+@use '../sass/mixins';
+
+.job {
+  &-container {
+    font-size: 1rem;
+    max-width: 69.375rem;
+    margin: auto;
+    @include mixins.mq(md) {
+      font-size: 1.2rem;
+    }
+  }
+  &__header {
+    font-size: 1rem;
+    color: variables.$color-very-dark-cyan;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: variables.$shadow-cyan;
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+    font-size: 0.9375rem;
+    &-flex {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      margin-top: 1rem;
+      @include mixins.mq(md) {
+        margin-bottom: 1rem;
+      }
+      @include mixins.mq(lg) {
+        margin-bottom: 2rem;
+      }
+    }
+    &-other {
+      color: variables.$color-grey-cyan;
+      font-weight: inherit;
+      line-height: 1.5rem;
+    }
+    @include mixins.mq(md) {
+      font-size: 1.2rem;
+    }
+    @include mixins.mq(lg) {
+      padding: 2.5rem;
+    }
+  }
+
+  &__logo-container {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+    & img {
+      width: 100%;
+    }
+    @include mixins.mq(md) {
+      width: 4rem;
+      height: 4rem;
+    }
+    @include mixins.mq(lg) {
+      width: 5.5rem;
+      height: 5.5rem;
+    }
+  }
+  &__position {
+    font-size: 1rem;
+    @include mixins.mq(md) {
+      font-size: 1.2rem;
+    }
+  }
+  &__company {
+    font-weight: inherit;
+    font-size: 1rem;
+    @include mixins.mq(md) {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+  &__skills {
+    margin-top: 1rem;
+    &-title {
+      color: variables.$color-very-dark-cyan;
+      margin-bottom: 0.5rem;
+      font-size: inherit;
+      @include mixins.mq(md) {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+    }
+    &-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      @include mixins.mq(md) {
+        gap: 1.5rem;
+      }
+    }
+    &-item {
+      background-color: variables.$color-bg;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 4px;
+      padding: 0.25rem 0.5rem;
+      color: variables.$color-dark-cyan;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      font-weight: variables.$font-bold;
+      @include mixins.mq(md) {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+  &__item {
+    margin-bottom: 1rem;
+    line-height: 1.3rem;
+  }
+  &__description {
+    color: variables.$color-very-dark-cyan;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 5px 10px 10px rgb(124, 143, 143, 0.1);
+    position: relative;
+    margin-top: 1rem;
+
+    @include mixins.mq(lg) {
+      padding: 2.5rem;
+    }
+    &-title {
+      margin-bottom: 0.5rem;
+      @include mixins.mq(md) {
+        margin-bottom: 1rem;
+      }
+      @include mixins.mq(lg) {
+        margin-bottom: 2rem;
+      }
+    }
+    &-sub-title {
+      margin-bottom: 0.5rem;
+    }
+  }
+}

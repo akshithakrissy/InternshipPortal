@@ -1,0 +1,204 @@
+@use '../sass/variables';
+@use '../sass/mixins';
+
+.home {
+  &__inner-container {
+    max-width: 69.375rem;
+    margin: auto;
+  }
+}
+.post {
+  background-color: #fff;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-radius: 0.25rem;
+  box-shadow: variables.$shadow-cyan;
+
+  position: relative;
+  margin-bottom: 2.5rem;
+  @include mixins.mq(md) {
+    margin-bottom: 3.5rem;
+  }
+  @include mixins.mq(home) {
+    padding: 2rem 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  // when having FEATURED
+  &.featured::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: variables.$color-dark-cyan;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+  }
+
+  &__img-container {
+    transform: translateY(-50%);
+    @include mixins.mq(home) {
+      transform: translateY(0);
+      margin-right: 1.5rem;
+    }
+
+    & img {
+      border-radius: 50%;
+      @include mixins.mq(md) {
+        width: 4rem;
+        height: 4rem;
+      }
+      @include mixins.mq(home) {
+        width: 5.5rem;
+        height: 5.5rem;
+      }
+    }
+  }
+
+  &__grid {
+    @include mixins.mq(home) {
+      display: grid;
+      grid-template-columns:
+        minmax(min-content, max-content)
+        minmax(min-content, max-content) 1fr;
+      grid-template-rows: 1fr;
+      align-items: center;
+    }
+  }
+
+  &__upper-container {
+    margin-top: -0.5rem;
+    @include mixins.mq(md) {
+      margin-top: -1rem;
+    }
+    @include mixins.mq(home) {
+      margin-top: 0;
+    }
+  }
+  &__lower-container {
+    padding-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1rem;
+    @include mixins.mq(home) {
+      grid-column: 3/-1;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      padding-top: 0;
+      padding-left: 2rem;
+    }
+  }
+
+  &__company {
+    font-weight: variables.$font-bold;
+    font-size: 0.8125rem;
+    color: variables.$color-dark-cyan;
+    line-height: 12px;
+    margin-right: 1.75rem;
+    @include mixins.mq(md) {
+      font-size: 1rem;
+    }
+    @include mixins.mq(home) {
+      font-size: 1.125rem;
+      margin-right: 0.9375rem;
+      margin-bottom: 0;
+    }
+
+    &-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      @include mixins.mq(home) {
+        margin-bottom: 0.63rem;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+  &__label {
+    font-weight: variables.$font-bold;
+    font-size: 0.8125rem;
+    line-height: 0.8125rem;
+    color: variables.$color-bg;
+    padding: 0.44rem 0.5rem 0.3rem 0.5rem;
+    border-radius: 3rem;
+    text-transform: uppercase;
+    @include mixins.mq(home) {
+      font-size: 0.875rem;
+      line-height: 0.875rem;
+    }
+    &.new {
+      background-color: variables.$color-dark-cyan;
+    }
+    &.featured {
+      background-color: variables.$color-very-dark-cyan;
+      margin-left: 0.5rem;
+    }
+  }
+  &__job-title {
+    font-size: 0.9375rem;
+    font-weight: variables.$font-bold;
+    color: variables.$color-very-dark-cyan;
+    line-height: 1.5rem;
+    margin-bottom: 0.5rem;
+    @include mixins.mq(md) {
+      font-size: 1rem;
+    }
+    @include mixins.mq(home) {
+      font-size: 1.375rem;
+      margin-bottom: 0.44rem;
+    }
+    &:hover {
+      color: variables.$color-dark-cyan;
+    }
+  }
+  &__data {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: variables.$color-grey-cyan;
+    line-height: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #b7c4c4;
+
+    @include mixins.mq(home) {
+      border-bottom: none;
+      padding-bottom: 0;
+      font-size: 1.125rem;
+      justify-content: space-between;
+    }
+  }
+  &__dot {
+    margin-left: 0.625rem;
+    margin-right: 0.625rem;
+    width: 0.25rem;
+    height: 0.25rem;
+    background-color: variables.$color-grey-cyan;
+    border-radius: 50%;
+  }
+  &__category {
+    background-color: variables.$color-bg;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    min-height: 2rem;
+    color: variables.$color-dark-cyan;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: variables.$font-bold;
+    border-radius: 4px;
+
+    @include mixins.mq(home) {
+      height: 2rem;
+    }
+
+    &:hover {
+      background-color: variables.$color-dark-cyan;
+      color: #fff;
+    }
+  }
+}

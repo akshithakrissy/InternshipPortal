@@ -1,0 +1,156 @@
+@use './sass/variables';
+@use './sass/mixins';
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+*:focus-visible {
+  outline: dotted 3px variables.$color-dark-cyan;
+  outline-offset: 10px;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  background-color: variables.$color-bg;
+}
+
+.App {
+  font-family: variables.$font-primary;
+  font-size: 0.9375rem;
+  @include mixins.mq(lg) {
+    font-size: 1.2rem;
+  }
+}
+
+li {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.main {
+  padding: 0 1.5rem;
+  padding-bottom: 1.5rem;
+  @include mixins.mq(md) {
+    padding: 0 2.5rem 5rem 2.5rem;
+  }
+  @include mixins.mq(lg) {
+    padding: 0 5rem 7.5rem 5rem;
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  & a {
+    color: hsl(228, 45%, 44%);
+  }
+}
+
+ul {
+  padding: 0;
+}
+
+.list-title {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  @include mixins.mq(md) {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+  }
+}
+
+.btn {
+  color: variables.$color-bg;
+  background-color: variables.$color-dark-cyan;
+  font-size: inherit;
+  padding: 0.45rem 2rem 0.25rem 2rem;
+  border-radius: 8px;
+  &:hover {
+    background-color: variables.$color-bg;
+    border: solid 1px variables.$color-dark-cyan;
+    color: variables.$color-dark-cyan;
+  }
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* isolate stacking context in React/Next */
+#root,
+#__next {
+  isolation: isolate;
+  min-height: inherit;
+}

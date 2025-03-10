@@ -1,0 +1,25 @@
+@use '../sass/variables';
+@use '../sass/mixins';
+
+.btn-edit {
+  &:hover > .edit-icon {
+    color: variables.$color-dark-cyan;
+  }
+}
+
+.btn-delete {
+  &:hover > .delete-icon {
+    color: red;
+  }
+}
+
+.table-responsive-sm {
+  font-size: 0.875rem;
+  overflow-x: auto;
+  // width: 100%;
+  display: block;
+
+  & > .table {
+    width: 100%;
+  }
+}
